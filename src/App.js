@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Welcome from "./Welcome";
+import "./App.css";
+import { render } from "@testing-library/react";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [count, setcount] = useState(0);
+
+  function incereament() {
+    setcount(count + 1);
+  }
+  function decreament() {
+    setcount(count - 1);
+  }
+  console.log("render");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="hello">
+      <div className="">
+        <h1>{count}</h1>
+        <button onClick={incereament}>incereament</button>
+        <button onClick={decreament}>decreament</button>
+      </div>
     </div>
   );
-}
-
+};
 export default App;
